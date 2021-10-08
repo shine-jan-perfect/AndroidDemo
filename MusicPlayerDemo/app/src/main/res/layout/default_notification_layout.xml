@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/rl_content"
+    android:layout_height="115dp">
+
+    <ImageView
+        android:id="@+id/default_song_cover_img"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:src="@mipmap/ic_launcher" />
+
+
+    <ImageView
+        android:id="@+id/default_notific_close"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/notification_close" />
+
+    <LinearLayout
+        android:id="@+id/eaeae"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/default_song_cover_img"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/default_song_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/default_song_cover_img"
+            android:ellipsize="end"
+            android:lines="1"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColor="#3C3C3C"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/default_song_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/song_name"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/default_song_cover_img"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxEms="15"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColor="#6C6C6C"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_below="@id/eaeae"
+        android:layout_toEndOf="@+id/default_song_cover_img"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/linearLayout"
+        android:layout_toEndOf="@+id/default_song_cover_img"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/default_last"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:padding="8dp"
+                android:src="@drawable/last_notification_icon" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/default_play"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:padding="6dp"
+                android:src="@drawable/play_notification" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/default_next"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:padding="8dp"
+                android:src="@drawable/next_notification_icon" />
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>
