@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CircleProgressView"
 include ':app'
+include ':lib_circle_progress_view'

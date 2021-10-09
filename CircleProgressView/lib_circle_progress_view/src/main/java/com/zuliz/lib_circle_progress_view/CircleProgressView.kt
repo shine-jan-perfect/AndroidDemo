@@ -1,4 +1,4 @@
-package com.zuliz.circleprogressview
+package com.zuliz.lib_circle_progress_view
 
 import android.content.Context
 import android.util.AttributeSet
@@ -18,7 +18,7 @@ class CircleProgressView : View {
     /**
      * 进度条宽度
      */
-    private var mProgressWidth = CommonUtil.dp2px(context, 10)
+    private var mProgressWidth = CommonUtils.dp2px(context, 10)
 
     /**
      * 当前进度
@@ -53,7 +53,7 @@ class CircleProgressView : View {
     /**
      * 进度条上的小圆半径
      */
-    private var mSmallCircleRadius = CommonUtil.dp2px(context, 5)
+    private var mSmallCircleRadius = CommonUtils.dp2px(context, 5)
 
     /**
      * 进度上面的小圆实心画笔
@@ -63,7 +63,7 @@ class CircleProgressView : View {
     /**
      * 当前进度字体大小
      */
-    private var mProgressTextSize = CommonUtil.sp2px(context, 30)
+    private var mProgressTextSize = CommonUtils.sp2px(context, 30)
 
     /**
      * 当前进度字体颜色
@@ -83,7 +83,7 @@ class CircleProgressView : View {
     /**
      * title字体大小
      */
-    private var mProgressTitleTextSize = CommonUtil.sp2px(context, 16)
+    private var mProgressTitleTextSize = CommonUtils.sp2px(context, 16)
 
     /**
      * title字体颜色
@@ -103,7 +103,7 @@ class CircleProgressView : View {
     /**
      * subtitle字体大小
      */
-    private var mProgressSubtitleTextSize = CommonUtil.sp2px(context, 16)
+    private var mProgressSubtitleTextSize = CommonUtils.sp2px(context, 16)
 
     /**
      * subtitle字体颜色
@@ -133,7 +133,7 @@ class CircleProgressView : View {
     /**
      * view 宽度
      */
-    private var mViewWidth = CommonUtil.dp2px(context, 20)
+    private var mViewWidth = CommonUtils.dp2px(context, 20)
 
     /**
      * View 绘制区域
@@ -350,7 +350,7 @@ class CircleProgressView : View {
                 mViewWidth * 2
             }
             else -> {
-                CommonUtil.getScreenWidthInPx(context)
+                CommonUtils.getScreenWidthInPx(context)
             }
         }
 
@@ -370,7 +370,7 @@ class CircleProgressView : View {
                 mViewWidth * 2
             }
             else -> {
-                CommonUtil.getScreenHeightInPx(context)
+                CommonUtils.getScreenHeightInPx(context)
             }
         }
 

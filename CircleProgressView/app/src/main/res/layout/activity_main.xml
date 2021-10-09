@@ -7,7 +7,7 @@
     android:background="@color/black"
     tools:context=".MainActivity">
 
-    <com.zuliz.circleprogressview.CircleProgressView
+    <com.zuliz.lib_circle_progress_view.CircleProgressView
         android:id="@+id/circle_progress_view"
         android:layout_width="120dp"
         android:layout_height="120dp"

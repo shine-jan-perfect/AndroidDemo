@@ -1,10 +1,10 @@
 package com.zuliz.circleprogressview
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.zuliz.lib_circle_progress_view.CircleProgressView
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         initView()
     }
 
-    @SuppressLint("SetTextI18n")
     private fun initView() {
         val circleProgressView = findViewById<CircleProgressView>(R.id.circle_progress_view)
 
@@ -27,8 +26,9 @@ class MainActivity : AppCompatActivity() {
                 progress = Random.nextInt(0, 20000).toFloat()
             }
 
-            findViewById<TextView>(R.id.tv_random_max_progress).text =
-                "progress = $progress, maxProgress = $maxProgress"
+            "progress = $progress, maxProgress = $maxProgress".also {
+                findViewById<TextView>(R.id.tv_random_max_progress).text = it
+            }
 
             circleProgressView.setProgress(progress, true)
         }

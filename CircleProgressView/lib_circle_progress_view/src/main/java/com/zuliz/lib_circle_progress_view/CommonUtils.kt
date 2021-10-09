@@ -1,9 +1,9 @@
-package com.zuliz.circleprogressview
+package com.zuliz.lib_circle_progress_view
 
 import android.content.Context
 import android.util.DisplayMetrics
 
-object CommonUtil {
+object CommonUtils {
     /**
      * dp转成px
      */
