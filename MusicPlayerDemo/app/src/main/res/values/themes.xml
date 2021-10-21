@@ -14,12 +14,21 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="CustomSeekbarStyle">
+    <style name="CustomSeekBarStyle">
         <item name="android:padding">5dp</item>
         <item name="android:maxHeight">2dp</item>
         <item name="android:splitTrack" tools:targetApi="lollipop">false</item>
         <item name="android:progressDrawable">@drawable/seekbar_progress_drawable</item>
         <item name="android:minHeight">2dp</item>
         <item name="android:thumb">@drawable/seek_thumb</item>
+    </style>
+
+    <style name="SeekBarAndTextStyle">
+        <item name="android:padding">5dp</item>
+        <item name="android:maxHeight">2dp</item>
+        <item name="android:splitTrack" tools:targetApi="lollipop">false</item>
+        <item name="android:progressDrawable">@drawable/seekbar_and_text_progress_drawable</item>
+        <item name="android:minHeight">2dp</item>
+        <item name="android:thumb">@drawable/seekbar_and_text_thumb</item>
     </style>
 </resources>

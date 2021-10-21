@@ -16,7 +16,10 @@ import com.zuliz.musicplayerdemo.music.client.MusicManager
 import com.zuliz.musicplayerdemo.music.client.PlayingChangedCallback
 import com.zuliz.musicplayerdemo.music.client.ProgressChangedCallback
 import com.zuliz.musicplayerdemo.music.service.playback.MusicRepeatMode
-import com.zuliz.musicplayerdemo.widget.MusicSeekBar
+import com.zuliz.musicplayerdemo.utils.MusicProgressFormatUtils
+import com.zuliz.musicplayerdemo.widget.SeekBarAndText
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PlayActivity : AppCompatActivity() {
     companion object {
@@ -30,7 +33,9 @@ class PlayActivity : AppCompatActivity() {
     private var mIvCover: ImageView? = null
     private var mTvTitle: TextView? = null
     private var mTvDescription: TextView? = null
-    private var mMusicSeekBar: MusicSeekBar? = null
+
+    //    private var mMusicSeekBar: MusicSeekBar? = null
+    private var mSeekBarAndText: SeekBarAndText? = null
     private var mBtnPlayOrPause: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +48,8 @@ class PlayActivity : AppCompatActivity() {
         mTvTitle = findViewById(R.id.tv_title)
         mTvDescription = findViewById(R.id.tv_description)
         mBtnPlayOrPause = findViewById(R.id.btn_play_pause)
-        mMusicSeekBar = findViewById(R.id.music_seek_bar)
+//        mMusicSeekBar = findViewById(R.id.music_seek_bar)
+        mSeekBarAndText = findViewById(R.id.music_seek_bar_and_text)
 
         Glide.with(this).load(musicInfoList!![0].albumArtUrl)
             .into(mIvCover!!)
@@ -67,9 +73,33 @@ class PlayActivity : AppCompatActivity() {
             )
         }
 
-        mMusicSeekBar?.setOnSeekBarChangeListener(object :
+//        mMusicSeekBar?.setOnSeekBarChangeListener(object :
+//            SeekBar.OnSeekBarChangeListener {
+//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+//            }
+//
+//            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+//            }
+//
+//            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+//                val progress = if (seekBar?.progress == null) {
+//                    0L
+//                } else {
+//                    seekBar.progress.toLong()
+//                }
+//                MusicManager.getInstance().seekTo(progress)
+//            }
+//        })
+
+        mSeekBarAndText?.setOnSeekBarChangeListener(object :
             SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                mSeekBarAndText?.setProgressText(
+                    MusicProgressFormatUtils.formatMaxAndProgress2ProgressText(
+                        mSeekBarAndText?.max,
+                        progress
+                    )
+                )
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -124,17 +154,37 @@ class PlayActivity : AppCompatActivity() {
         })
         MusicManager.getInstance().setProgressChangedCallback(object : ProgressChangedCallback {
             override fun onDurationChanged(duration: Int) {
-                mMusicSeekBar?.max = duration
+//                mMusicSeekBar?.max = duration
+                mSeekBarAndText?.max = duration
+
+                MusicProgressFormatUtils.formatMaxAndProgress2ProgressText(
+                    mSeekBarAndText?.max,
+                    mSeekBarAndText?.progress
+                )
+                mSeekBarAndText?.setProgressText(
+                    MusicProgressFormatUtils.formatMaxAndProgress2ProgressText(
+                        mSeekBarAndText?.max,
+                        mSeekBarAndText?.progress
+                    )
+                )
                 Log.d("durationChanged", "duration = $duration")
             }
 
             override fun onProgressChanged(currentProgress: Int) {
-                mMusicSeekBar?.progress = currentProgress
+//                mMusicSeekBar?.progress = currentProgress
+                mSeekBarAndText?.progress = currentProgress
+                mSeekBarAndText?.setProgressText(
+                    MusicProgressFormatUtils.formatMaxAndProgress2ProgressText(
+                        mSeekBarAndText?.max,
+                        mSeekBarAndText?.progress
+                    )
+                )
                 Log.d("progressChanged", "currentProgress = $currentProgress")
             }
 
             override fun onBufferedProgressChanged(bufferedProgress: Int) {
-                mMusicSeekBar?.secondaryProgress = bufferedProgress
+//                mMusicSeekBar?.secondaryProgress = bufferedProgress
+                mSeekBarAndText?.secondaryProgress = bufferedProgress
                 Log.d("bufferedProgressChanged", "bufferedProgress = $bufferedProgress")
             }
 
