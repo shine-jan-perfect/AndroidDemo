@@ -2,6 +2,7 @@ package com.zuliz.musicplayerdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.exoplayer2.*
 import com.zuliz.musicplayerdemo.music.client.MusicManager
@@ -14,6 +15,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.zuliz.musicplayerdemo.model.AlbumInfo
 import com.zuliz.musicplayerdemo.music.client.model.MusicInfo
+import com.zuliz.musicplayerdemo.utils.MusicProgressFormatUtils
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -40,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         })
 
         initMusicManager()
+
+        Log.i("Utils", MusicProgressFormatUtils.formatMaxAndProgress2ProgressText(363661111, 61000))
     }
 
     private fun initMusicManager() {
